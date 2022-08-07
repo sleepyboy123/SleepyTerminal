@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Terminal from 'react-console-emulator'
 
 import commands from './commands'
@@ -8,7 +8,8 @@ export default function SleepyTerm() {
     const owrs = commands.overwrites
     const cmds = commands.commands
     const terminal = React.createRef()
-    const [prompt, setPrompt] = React.useState('you@sleepyterm:$ ')
+    // eslint-disable-next-line no-unused-vars
+    const [prompt, setPrompt] = useState('you@sleepyterm:$ ')
 
     async function fetchCat() {
         let response  = await fetch("https://api.thecatapi.com/v1/images/search")

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     commands: {
         echo: {
@@ -70,7 +71,6 @@ export default {
             description: 'Projects I have done.',
             usage: 'projects',
             fn: () => {
-                let x = 1
                 return `
                     these are the projects I have done.
                     -----------------------------------
