@@ -1,4 +1,4 @@
-# Sleepy CLI 😴
+# Sleepy Terminal 😴
 
 ## Made Using
 
