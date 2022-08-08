@@ -6,13 +6,6 @@ export default {
             usage: 'echo <text>',
             fn: (...args) => args.join(" ")
         },
-        whoami: {
-            description: 'Who am i?',
-            usage: 'whoami',
-            fn: () => {
-                return "Who am i?\n 1) Cyber Security Engineer\n 2) Software Developer Hobbyist\n"
-            }
-        },
         instagram: {
             description: 'Opens my instagram page',
             usage: 'instagram',
@@ -67,19 +60,6 @@ export default {
                 `
             }
         },
-        projects: {
-            description: 'Projects I have done.',
-            usage: 'projects',
-            fn: () => {
-                return `
-                    these are the projects I have done.
-                    -----------------------------------
-                    sleepychat    https://sleepychat.netlify.app/
-                    sleepytask    https://sleepytasks.netlify.app/
-                    sleepytyper   https://sleepytyper.netlify.app/
-                `
-            }
-        },
     },
     overwrites:{
         help: {
@@ -90,9 +70,17 @@ export default {
             description: 'Clears the terminal',
             usage: 'clear'
         },
+        whoami: {
+            description: 'Who am i?',
+            usage: 'whoami',
+        },
         cat: {
             description: 'Get a cute cat image.',
             usage: 'cat',
+        },
+        projects: {
+            description: 'Projects I have done.',
+            usage: 'projects',
         }
-    }
+    },
 }

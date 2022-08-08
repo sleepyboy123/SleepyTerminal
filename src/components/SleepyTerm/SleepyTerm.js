@@ -2,11 +2,16 @@ import React, {useState} from 'react';
 import Terminal from 'react-console-emulator'
 
 import commands from './commands'
+import projects from './projects'
+
+import profile from '../../images/profile.jpeg'
 
 export default function SleepyTerm() {
 
     const owrs = commands.overwrites
     const cmds = commands.commands
+    const prjs = projects.projects
+
     const terminal = React.createRef()
     // eslint-disable-next-line no-unused-vars
     const [prompt, setPrompt] = useState('you@sleepyterm:$ ')
@@ -35,13 +40,6 @@ export default function SleepyTerm() {
             " "
         ]}
         commands={{
-            clear: {
-                description: 'Clears the terminal',
-                usage: 'clear',
-                fn: () => {
-                    terminal.current.clearStdout()
-                }
-            },
             help: {
                 description: 'List all available commands',
                 usage: 'help',
@@ -52,6 +50,23 @@ export default function SleepyTerm() {
                     `
                 }
             },
+            clear: {
+                description: 'Clears the terminal',
+                usage: 'clear',
+                fn: () => {
+                    terminal.current.clearStdout()
+                }
+            },
+            whoami: {
+                description: 'Who am i?',
+                usage: 'whoami',
+                fn: () => {
+                    terminal.current.pushToStdout(<img src={profile} alt='whoami'></img>)
+                    terminal.current.pushToStdout(`Who am i?`)
+                    terminal.current.pushToStdout(`1) Cyber Security Engineer`)
+                    terminal.current.pushToStdout(`2) Software Developer Hobbyist`)
+                }
+            },
             cat: {
                 description: 'Get a random cute cat~',
                 usage: 'cat',
@@ -59,6 +74,17 @@ export default function SleepyTerm() {
                     const {url, width, height} = await fetchCat()
                     terminal.current.pushToStdout("kitnapping a cat...")
                     terminal.current.pushToStdout(<img src={url} width={width < 600 ? width : 600} height={height < 480 ? width : 480} alt='cat'></img>)
+                }
+            },
+            projects: {
+                description: 'Projects I have done.',
+                usage: 'projects',
+                fn: () => {
+                    terminal.current.pushToStdout(`these are the projects I have done.`)
+                    terminal.current.pushToStdout(`-----------------------------------`)
+                    for (const [key, value] of Object.entries(prjs)) {
+                        terminal.current.pushToStdout(<div><a href={value["link"]} rel="noopener noreferrer" target='_blank'>{key}</a>{" ".repeat(18-key.length)}{value["description"]}</div>)
+                    }
                 }
             },
             ...cmds
