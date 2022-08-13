@@ -9,7 +9,7 @@ export default {
             link: 'https://sleepytasks.netlify.app',
             description: 'CRUD Application made with ReactJS & Firebase'
         },
-        sleeypytyper: {
+        sleepytyper: {
             link: 'https://sleepytyper.netlify.app/',
             description: 'Typing game made using Vanilla JS'
         },
